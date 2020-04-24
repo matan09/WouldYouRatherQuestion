@@ -3,22 +3,17 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <h1>Would Your Rather?</h1>
     <wouldYouRatherQuestion
-    v-bind:questions="questions"
-   
-    
-    
-    
-   
+    v-bind:questions="questions" 
     
     v-on:answer-changed="userAnswers" 
     ></wouldYouRatherQuestion>
     <div> 
-      <h1>{{ selectionHeader }}</h1>
+      <h1>{{  ResultHeader }}</h1>
     </div>
 
     <div> 
     <p class="user-answers">
-      <span>...? Try making a selection above</span>
+     
       <ul>
         <li v-for="choice in userChoices" :key="choice"><span>{{choice}}</span></li>
       </ul>
@@ -37,15 +32,14 @@ export default {
   },
    data() {
         return{
-          selectionHeader: 'You Would Rather...',
-          userSelectionMessage: [],
+          ResultHeader: 'You Would Rather...',
           userChoices: [],
             questions: [
         {
             id:0,
             question :'would you want to be a writer or famous?',
-            answer1: 'writer',
-            answer2: 'famous'
+            answer1: 'Be Writer',
+            answer2: 'Be Famous'
         },
         {
             id:1,
@@ -56,8 +50,8 @@ export default {
         {
             id:2,
             question :'Would you rather be a super hero or wizard?',
-            answer1: 'hero',
-            answer2: 'Wizard'
+            answer1: 'Super hero',
+            answer2: 'Be Wizard'
         }
         ],   
      }
@@ -65,7 +59,6 @@ export default {
     },
     methods: {
       userAnswers(choice){
-        console.log('msg is emitted')
         this.userChoices.push(choice)
       }
     }
