@@ -2,8 +2,13 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <h1>Would Your Rather?</h1>
-    <wouldYouRatherQuestion 
+    <wouldYouRatherQuestion
     v-bind:questions="questions"
+   
+    
+    
+    
+   
     
     v-on:answer-changed="userAnswers" 
     ></wouldYouRatherQuestion>
