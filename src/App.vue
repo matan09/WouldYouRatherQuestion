@@ -3,7 +3,12 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <h1>Would Your Rather?</h1>
     <wouldYouRatherQuestion
-    v-bind:questions="questions" 
+    v-for="ques in questions" v-bind:key="ques" v-bind:class="'ques-'+ques.id"
+    v-bind:question="ques.question"
+    v-bind:answer1="ques.answer1"
+    v-bind:answer2="ques.answer2"
+    
+ 
     
     v-on:answer-changed="userAnswers" 
     ></wouldYouRatherQuestion>
@@ -37,15 +42,15 @@ export default {
             questions: [
         {
             id:0,
-            question :'would you want to be a writer or famous?',
-            answer1: 'Be Writer',
-            answer2: 'Be Famous'
+            question :'would you Rather to be a writer or famous?',
+            answer1: 'Would be a Writer',
+            answer2: 'Would be  Famous'
         },
         {
             id:1,
             question :'Would you rather live in a house shaped like a circle or a house shaped like a triangle?',
-            answer1: 'Circle',
-            answer2: 'Triangle'
+            answer1: 'Live in Circle',
+            answer2: 'Live in Triangle'
         },
         {
             id:2,
@@ -66,6 +71,36 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  color: #2c3e50;
+  margin-top: 30px;
+  padding:30px;
+}
+ul{
+  text-decoration: black;
+  border:1px thin gray;
+  text-align: center;
+  
+  position: centre;
+}
+h1{
+  text-align: center;
+}
 
+.ques-0{
+  background: lightseagreen
+}
+
+.ques-1{
+  background: crimson;
+}
+
+.ques-2{
+  background: lightpink;
+}
 
 </style>

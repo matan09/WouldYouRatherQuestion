@@ -1,12 +1,12 @@
 <template>
     <div>
         <div>
-            <div v-for="obj in questions" :key="obj.id">
-                    <h2>{{ obj.question }}</h2>
-                    <input type="radio" v-model="choice" v-bind:value="obj.answer1" v-on:change="$emit('answer-changed', choice)">
-                    <label>{{obj.answer1}}</label>
-                    <input type="radio" v-model="choice" v-bind:value="obj.answer2" v-on:change="$emit('answer-changed', choice)">
-                    <label>{{obj.answer2}}</label>
+            <div>
+                    <h2>{{ question }}</h2>
+                    <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="$emit('answer-changed', choice)">
+                    <label>{{answer1}}</label>
+                    <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change="$emit('answer-changed', choice)">
+                    <label>{{answer2}}</label>
                 </div>
         </div>
     </div>
@@ -18,12 +18,13 @@ export default {// provide what ever is in the script to what ever imports this 
     data(){
         return{
             choice: '',// a list of user answers
-        
-            
+              
         }
     },
     props: {
-        questions: Array
+        question: String,
+        answer1: String,
+        answer2: String
     }
     
     
