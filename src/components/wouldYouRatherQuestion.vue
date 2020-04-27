@@ -21,7 +21,7 @@ export default {// provide what ever is in the script to what ever imports this 
               
         }
     },
-    props: {
+    props: {// data provided by the parent
         question: String,
         answer1: String,
         answer2: String

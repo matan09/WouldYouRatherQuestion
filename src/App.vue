@@ -17,7 +17,7 @@
     </div>
 
     <div> 
-    <p class="user-answers">
+    <p class="userAnswers">
      
       <ul>
         <li v-for="choice in userChoices" :key="choice"><span>{{choice}}</span></li>
