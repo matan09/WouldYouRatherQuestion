@@ -3,9 +3,9 @@
         <div>
             <div>
                     <h2>{{ question }}</h2>
-                    <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="$emit('answer-changed', choice)">
+                    <input type="radio" v-model="choice" v-bind:value="answer1+ ','+id" v-on:change="$emit('answer-changed', choice)">
                     <label>{{answer1}}</label>
-                    <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change="$emit('answer-changed', choice)">
+                    <input type="radio" v-model="choice" v-bind:value="answer2+ ','+id" v-on:change="$emit('answer-changed', choice)">
                     <label>{{answer2}}</label>
                 </div>
         </div>
@@ -21,7 +21,8 @@ export default {// provide what ever is in the script to what ever imports this 
               
         }
     },
-    props: {// data provided by the parent
+    props: {// data sent from the parent
+        id: Number,
         question: String,
         answer1: String,
         answer2: String

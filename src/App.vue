@@ -3,10 +3,11 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <h1>Would Your Rather?</h1>
     <wouldYouRatherQuestion
-    v-for="ques in questions" v-bind:key="ques" v-bind:class="'ques-'+ques.id"
+    v-for="ques in questions" v-bind:key="ques.id" v-bind:class="'ques-'+ques.id"
     v-bind:question="ques.question"
     v-bind:answer1="ques.answer1"
     v-bind:answer2="ques.answer2"
+    v-bind:id="ques.id"
     
  
     
@@ -20,7 +21,7 @@
     <p class="userAnswers">
      
       <ul>
-        <li v-for="choice in userChoices" :key="choice"><span>{{choice}}</span></li>
+        <li v-for="choice in userChoices" :key="choice">{{choice}}</li>
       </ul>
     </p>
     </div>
@@ -64,7 +65,9 @@ export default {
     },
     methods: {
       userAnswers(choice){
-        this.userChoices.push(choice)
+        var choiceSplitted = choice.split(",")
+       this.$set(this.userChoices, choiceSplitted[1], choiceSplitted[0])
+
       }
     }
 }
@@ -73,23 +76,20 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
   color: #2c3e50;
   margin-top: 30px;
   padding:30px;
 }
-ul{
-  text-decoration: black;
-  border:1px thin gray;
-  text-align: center;
-  
-  position: centre;
+.userAnswers{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    color: sandybrown;
+    line-height:1.6;
+    font-style: oblique; 
 }
-h1{
-  text-align: center;
-}
+
 
 .ques-0{
   background: lightseagreen
